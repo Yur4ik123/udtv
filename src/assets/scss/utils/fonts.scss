@@ -38,6 +38,18 @@
 }
 @font-face {
   font-family: 'Open Sans';
+  src: local('OpenSans-Italic'),
+  local('OpenSans-Italic'),
+  url('/assets/fonts/OpenSans/OpenSans-Italic.woff2') format('woff2'),
+  url('/assets/fonts/OpenSans/OpenSans-Italic.woff') format('woff'),
+  url('/assets/fonts/OpenSans/OpenSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
   src: local('OpenSans-Bold'),
   local('OpenSans-Bold'),
   url('/assets/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2'),
