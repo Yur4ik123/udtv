@@ -338,10 +338,13 @@ body {
   padding: 0 50px;
 
   .news__item {
-    border-radius: 4px 4px 0px 0px;
+    border-radius: 4px;
     overflow: hidden;
+    padding: 0 8px 8px;
 
     .img__wrapper {
+      margin-left: -8px;
+      margin-right: -8px;
       height: 200px;
       margin-bottom: 8px;
       overflow: hidden;
@@ -361,7 +364,7 @@ body {
       line-height: 29px;
       letter-spacing: -0.3px;
       color: $cMainBlackColor;
-      padding: 0 8px;
+
       margin-bottom: 16px;
     }
 
@@ -369,20 +372,14 @@ body {
       background-color: #F8F8FB;
       transition: 0.3s;
 
-      .news__info {
-        .news__arrow {
-          img {
-            transform: rotateZ(90deg);
-          }
-        }
-      }
+
     }
 
     .news__info {
       display: grid;
       grid-template-columns: 105px 100px 1fr;
       grid-gap: 20px;
-      padding: 0 8px 5px;
+      padding-bottom: 5px;
 
       img {
         margin-right: 10px;
@@ -401,12 +398,77 @@ body {
 
       .news__arrow {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        justify-self: end;
+
 
         img {
           transition: 0.3s;
           margin-right: 0;
         }
+
+        &:hover {
+          img {
+            transform: rotateZ(90deg);
+          }
+        }
+      }
+    }
+
+    .news__detail {
+      margin-top: 15px;
+      border-top: 1px solid #C5C5C5;
+      padding: 16px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .news__authors {
+        display: flex;
+        align-items: center;
+
+        .news__author {
+          margin-right: 24px;
+          display: grid;
+          grid-template-columns: 24px 1fr;
+          grid-gap: 8px;
+          margin-bottom: 8px;
+
+          .author__img {
+            width: 24px;
+            height: 24px;
+
+            img {
+              width: 24px;
+              border-radius: 100%;
+              overflow: hidden;
+              height: 24px;
+            }
+          }
+
+          .author__title {
+            align-self: center;
+            font-size: 14px;
+            line-height: 17px;
+
+            letter-spacing: -0.3px;
+            text-decoration-line: underline;
+            color: $cMainBlackColor;
+          }
+
+        }
+
+      }
+
+      .news__resource {
+        font-size: 14px;
+        line-height: 19px;
+        text-align: right;
+        letter-spacing: -0.3px;
+        text-decoration-line: underline;
+        color: $cMainBlueColor;
       }
     }
 
@@ -479,11 +541,19 @@ body {
   .news__wrapper {
     padding-left: 0;
     padding-right: 0;
+    grid-gap: 24px;
 
     .news__item {
+
       .news__title {
         font-size: 18px;
         line-height: 22px;
+      }
+
+      .news__detail {
+        .news__resource {
+          display: none;
+        }
       }
 
       .img__wrapper {
@@ -548,24 +618,29 @@ body {
         width: 100%;
       }
     }
-    .person__content{
+
+    .person__content {
       padding: 0;
-      .person__name{
+
+      .person__name {
         font-size: 32px;
         line-height: 38px;
         margin-bottom: 4px;
       }
-      .person__subtitle{
+
+      .person__subtitle {
         font-size: 14px;
         line-height: 19px;
         margin-bottom: 16px;
       }
-      .person__description{
+
+      .person__description {
         font-size: 14px;
         line-height: 19px;
         margin-bottom: 16px;
       }
-      .person__articles-count{
+
+      .person__articles-count {
         font-size: 14px;
         line-height: 19px;
       }
@@ -601,11 +676,12 @@ body {
       }
     }
   }
-  .news__wrapper{
+  .news__wrapper {
     grid-template-columns: 1fr;
-    grid-gap: 24px;
-    .news__item{
-      .img__wrapper{
+    grid-gap: 16px;
+
+    .news__item {
+      .img__wrapper {
         height: 200px;
       }
     }
@@ -627,16 +703,18 @@ body {
     }
   }
 }
+
 @media screen and (max-width: 476px) {
-.news__wrapper{
-  .news__item{
-    .img__wrapper{
-      height: 150px;
-      margin-bottom: 15px;
-    }
-    .news__title{
-      margin-bottom: 16px;
+  .news__wrapper {
+    .news__item {
+      .img__wrapper {
+        height: 150px;
+        margin-bottom: 15px;
+      }
+
+      .news__title {
+        margin-bottom: 16px;
+      }
     }
   }
-}
 }
