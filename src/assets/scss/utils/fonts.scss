@@ -1,0 +1,50 @@
+@import "mixins";
+
+@font-face {
+  font-family: 'Akrobat';
+  src: local('Akrobat Bold'),
+  local('Akrobat-Bold'),
+  url('/assets/fonts/Akrobat/Akrobatbold.woff2') format('woff2'),
+  url('/assets/fonts/Akrobat/Akrobatbold.woff') format('woff'),
+  url('/assets/fonts/Akrobat/Akrobatbold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Akrobat';
+  src: local('Akrobat SemiBold'),
+  local('Akrobat-SemiBold'),
+  url('/assets/fonts/Akrobat/Akrobatsemibold.woff2') format('woff2'),
+  url('/assets/fonts/Akrobat/Akrobatsemibold.woff') format('woff'),
+  url('/assets/fonts/Akrobat/Akrobatsemibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: local('OpenSans-Regular'),
+  local('OpenSans-Regular'),
+  url('/assets/fonts/OpenSans/OpenSans-Regular.woff2') format('woff2'),
+  url('/assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff'),
+  url('/assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: local('OpenSans-Bold'),
+  local('OpenSans-Bold'),
+  url('/assets/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2'),
+  url('/assets/fonts/OpenSans/OpenSans-Bold.woff') format('woff'),
+  url('/assets/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: normal;
+}
