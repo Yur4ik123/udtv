@@ -475,9 +475,107 @@ body {
   }
 }
 
+.article__wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 24px;
+  }
+
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  color: $cMainBlackColor;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $akrobatFont;
+    margin-bottom: 24px;
+    letter-spacing: -0.3px;
+    color: black;
+
+  }
+  h2{
+
+    font-weight: 700;
+    font-size: 24px;
+  }
+  h3{
+    font-family: $mainFont;
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+    color: $cMainBlackColor;
+    margin-bottom: 24px;
+
+  }
+}
+.article__detail{
+  max-width: 640px;
+  margin: 0 auto;
+  border-top: 1px solid #C5C5C5;
+  padding-top: 24px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .article__authors{
+    display: flex;
+    align-items: center;
+    .article__author{
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      margin-right: 32px;
+      grid-gap: 8px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    .author__image{
+      img{
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
+        overflow: hidden;
+        object-fit: cover;
+      }
+    }
+    .author__title{
+      display: flex;
+      align-items: center;
+      a{
+        font-family: $akrobatFont;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: -0.3px;
+        text-decoration-line: underline;
+        color: $cMainBlackColor;
+      }
+    }
+  }
+  .article__origin{
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: $cMainBlackColor;
+    a{
+      color: $cMainBlueColor;
+    }
+  }
+}
+
 @media screen and (max-width: 1150px) {
 
-  .staff__page, .person__page {
+  .staff__page, .person__page, .news__page, .article__page {
     padding: 0 15px;
   }
   .content__container {
@@ -487,6 +585,27 @@ body {
 }
 
 @media screen and (max-width: 992px) {
+  .article__wrapper{
+    img{
+      margin-bottom: 16px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 16px;
+    }
+    h3{
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    p {
+      margin-bottom: 16px;
+
+    }
+    h2{
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
 
   .header {
     .container {
@@ -592,6 +711,13 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .article__detail{
+    flex-direction: column;
+    align-items: center;
+    .article__authors{
+      margin-bottom: 16px;
+    }
+  }
   .main__page {
     .page_message {
       font-size: 32px;

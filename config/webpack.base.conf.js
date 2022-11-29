@@ -124,6 +124,13 @@ module.exports = {
       template: `${PATHS.src}/news.html`,
       filename: "./news.html"
     }),
+    new HtmlWebpackPlugin({
+      // hash: false,
+      title: 'Annette Black',
+      inject: true,
+      template: `${PATHS.src}/article.html`,
+      filename: "./article.html"
+    }),
     new HtmlPluginRemove(/<!--deletestart-->[\s\S]*<!--deleteend-->/gi),
     new CopyWebpackPlugin([
       {from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img`},
