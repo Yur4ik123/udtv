@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV !== "production";
 
 const PATHS = {
   src: path.join(__dirname, "../src"),
-  dist: path.join(__dirname, "../dist"),
+  dist: path.join(__dirname, "../docs"),
   assets: "assets/"
 };
 

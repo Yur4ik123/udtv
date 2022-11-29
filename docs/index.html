@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Головна</title>
 
-<link href="assets/css/vendors.4926da5987830f271854.css" rel="stylesheet"><link href="assets/css/app.4926da5987830f271854.css" rel="stylesheet"></head>
+<link href="assets/css/vendors.a4323b17de0f1f919d74.css" rel="stylesheet"><link href="assets/css/app.a4323b17de0f1f919d74.css" rel="stylesheet"></head>
 
 <body>
 <div id="app">
@@ -18,8 +18,8 @@
       <a href="" class="header__logo">
         <img src="./assets/img/logo_white.svg" width="205" height="32" alt="">
       </a>
-      <a href="" class="mobile__menu" style="display: none">
-        <img src="./assets/img/mobile_menu.svg" width="24" height="14" alt="">
+      <a href="#mobile__menu" class="mobile__menu" uk-toggle style="display: none">
+        <img class="menu__icon" src="./assets/img/mobile_menu.svg" width="24" height="14" alt="">
       </a>
       <nav class="header__nav">
         <ul class="nav__list">
@@ -94,7 +94,6 @@
                 </clipPath>
               </defs>
             </svg>
-
           </button>
           <div class="modal__header">
             Анкета співробітника
@@ -327,9 +326,59 @@
 
     </div>
   </div>
+  <div id="mobile__menu" uk-offcanvas="flip: true; overlay: true">
+    <div class="uk-offcanvas-bar mobile__canvas">
+      <div class="mobile__menu-wrapper">
+        <div class="mobile__menu-header">
+          <div class="lang__switcher-mobile" >
+              <a href="" class="lang__switch active">UKR</a>
+              <a href="" class="lang__switch">EN</a>
+          </div>
+          <div class="logo__mobile">
+            <img src="./assets/img/logo-mobile.svg" width="164" height="26" alt="">
+          </div>
+          <button class="uk-offcanvas-close" type="button">
+            <img src="./assets/img/close__menu.svg" width="20" height="19" alt="">
+          </button>
+        </div>
+        <div class="mobile__menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="" class="nav__link">
+                Головна
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="" class="nav__link">
+                Усі новини
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="/staff.html" class="nav__link">
+                наші співробітники
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="" class="nav__link">
+                Про нас
+              </a>
+            </li>
+            <li class="nav__item active">
+              <a href="" class="nav__link">
+                анкета співробітника
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
+
+
+
+    </div>
+  </div>
 </div>
 
-<script type="text/javascript" src="assets/js/vendors.4926da5987830f271854.js"></script><script type="text/javascript" src="assets/js/app.4926da5987830f271854.js"></script></body>
+<script type="text/javascript" src="assets/js/vendors.a4323b17de0f1f919d74.js"></script><script type="text/javascript" src="assets/js/app.a4323b17de0f1f919d74.js"></script></body>
 
 </html>
