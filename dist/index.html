@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Головна</title>
 
-<link href="assets/css/app.0a1e1adc33165602fc13.css" rel="stylesheet"></head>
+<link href="assets/css/vendors.d17e44045a9b63d66dd1.css" rel="stylesheet"><link href="assets/css/app.d17e44045a9b63d66dd1.css" rel="stylesheet"></head>
 
 <body>
 <div id="app">
@@ -64,7 +64,7 @@
           Ведуться технічні роботи
         </div>
         <div class="btn_wrapper">
-          <a href="" class="team__btn">
+          <a href="#form_modal" class="team__btn" uk-toggle>
             хочу до команди
           </a>
         </div>
@@ -72,9 +72,246 @@
       </div>
     </div>
   </div>
+  <div class="uk-flex-top" uk-modal="bg-close: false, " id="form_modal">
+    <div class="uk-modal-dialog uk-margin-auto-vertical">
+
+      <div class="modal__content">
+        <div class="form__wrapper">
+          <button class="uk-modal-close-outside" type="button" uk-close></button>
+          <div class="modal__header">
+            Анкета співробітника
+          </div>
+          <div class="form__subheader">
+            Залиште ваші дані і ми зв’яжемось з вами для їх підтвердження
+          </div>
+          <div class="person__cards">
+            <div class="card">
+              <div class="card__image">
+                <img src="./assets/img/card1.png" width="111" height="105" alt="">
+              </div>
+              <div class="card__title">
+                Посвідчення
+                репортера
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image">
+                <img src="./assets/img/card2.png" width="92" height="112" alt="">
+              </div>
+              <div class="card__title">
+                Перепустка <br>
+                на авто
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image">
+                <img src="./assets/img/card3.png" width="51" height="82" alt="">
+              </div>
+              <div class="card__title">
+                Посвідчення
+                репортера
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image">
+                <img src="./assets/img/card3.png" width="51" height="82" alt="">
+              </div>
+              <div class="card__title">
+                Посвідчення
+                репортера
+              </div>
+            </div>
+          </div>
+          <form action="" class="user__form" id="user_form">
+            <div class="form__block">
+              <div class="block__header">
+                Особисті дані
+              </div>
+              <div class="form__row row__3">
+                <div class="input__wrapper">
+                  <div class="label required">
+                    Прізвище
+                  </div>
+                  <input type="text" class="input" required>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label required">
+                    Ім’я
+                  </div>
+                  <input type="text" class="input" required>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label ">
+                    По-батькові
+                  </div>
+                  <input type="text" class="input">
+                </div>
+              </div>
+              <div class="form__row row__3">
+                <div class="input__wrapper">
+                  <div class="label required">
+                    Контактний телефон
+                  </div>
+                  <input type="tel" class="input" required>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label required">
+                    E-Mail
+                  </div>
+                  <input type="email" class="input" required>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label ">
+                    Маю автомобіль
+                  </div>
+                  <select class="custom__select">
+                    <option value="1">Так</option>
+                    <option value="2">Ні</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+            <div class="form__block">
+              <div class="block__header">
+                Посада
+              </div>
+              <div class="form__row row__2">
+                <div class="input__wrapper">
+                  <div class="label ">
+                    Бажана посада
+                  </div>
+                  <select class="custom__select">
+                    <option value="1">Спеціальний кореспондент</option>
+                    <option value="2">Репортер</option>
+                    <option value="2">Оператор</option>
+                  </select>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label ">
+                    Термін
+                  </div>
+                  <select class="custom__select">
+                    <option value="1">1 рік</option>
+                    <option value="2">2 роки</option>
+                    <option value="2">3 роки</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form__block">
+              <div class="block__header">
+                Місце проживання
+              </div>
+              <div class="form__row row__3">
+                <div class="input__wrapper">
+                  <div class="label required">
+                    Область
+                  </div>
+                  <input type="text" class="input" required>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label required">
+                    Місто *
+                  </div>
+                  <input type="text" class="input" required>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label ">
+                    Вулиця
+                  </div>
+                  <input type="text" class="input">
+                </div>
+                <div class="input__wrapper">
+                  <div class="label ">
+                    Будинок
+                  </div>
+                  <input type="text" class="input">
+                </div>
+                <div class="input__wrapper">
+                  <div class="label ">
+                    Квартира
+                  </div>
+                  <input type="text" class="input">
+                </div>
+              </div>
+            </div>
+            <div class="form__block">
+              <div class="block__header">
+                Адреса доставки
+              </div>
+              <div class="form__row row__2">
+                <div class="input__wrapper">
+                  <div class="label required">
+                    Місто
+                  </div>
+                  <select class="custom__select">
+                    <option value="1">Харків</option>
+                    <option value="2">Київ</option>
+                    <option value="2">Одеса</option>
+                  </select>
+                </div>
+                <div class="input__wrapper">
+                  <div class="label required">
+                    Відділення нової пошти
+                  </div>
+                  <select class="custom__select">
+                    <option value="1">Відділення №1</option>
+                    <option value="2">Відділення №2</option>
+                    <option value="2">Відділення №3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form__block">
+              <div class="block__header">
+                Фото на посвідчення
+              </div>
+              <div class="block__subheader">
+                Виберіть файл формату .jpg або .png. Розмір файлу не повинен перевищувати 5 Mb
+              </div>
+              <div uk-form-custom class="upload__image js-upload" id="form__custom">
+                <input type="file" aria-label="Custom controls">
+                <span class="uk-link">
+                  <img src="./assets/img/upload.svg" width="24" height="24" alt="">
+                  Обрати файл
+                </span>
+              </div>
+              <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+              <img id="editor_container" style="display: none" src="./assets/img/avatar.jpg" width="1080" height="608">
+              <div class="btn__wrapper">
+                <button class="submit__btn save__image" style="display: none">
+                  Сохранить
+                </button>
+              </div>
+              <input type="hidden" id="input_image">
+            </div>
+            <div class="form__footer">
+              <div class="input__wrapper">
+                <label>
+                  <input class="uk-checkbox" type="checkbox">
+                  Погоджуюсь на <a href="" target="_blank">обробку особистих даних</a>
+                </label>
+              </div>
+              <div class="btn__wrapper">
+                <button type="submit" class="submit__btn">
+                  відправити
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
 
 </div>
 
-<script type="text/javascript" src="assets/js/vendors.0a1e1adc33165602fc13.js"></script><script type="text/javascript" src="assets/js/app.0a1e1adc33165602fc13.js"></script></body>
+<script type="text/javascript" src="assets/js/vendors.d17e44045a9b63d66dd1.js"></script><script type="text/javascript" src="assets/js/app.d17e44045a9b63d66dd1.js"></script></body>
 
 </html>

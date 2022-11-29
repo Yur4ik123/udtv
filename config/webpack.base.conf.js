@@ -13,9 +13,13 @@ const PATHS = {
 
 // Base Webpack config
 module.exports = {
+  node: {
+    child_process: 'empty',
+  },
   externals: {
     paths: PATHS
   },
+
   entry: {
     app: PATHS.src,
   },
@@ -39,7 +43,7 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       loader: "babel-loader",
-      exclude: isProduction ? [/node_modules/, /\.smart-gread-layer$/] : /node_modules/,
+      exclude: /node_modules/,
     },
       {
         // Fonts
@@ -87,6 +91,7 @@ module.exports = {
       }]
   },
   resolve: {
+
     alias: {
       "~": PATHS.src,
       vue$: "vue/dist/vue.js"
