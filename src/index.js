@@ -2,92 +2,79 @@ import "./assets/scss/main.scss";
 import UIkit from 'uikit';
 import SlimSelect from 'slim-select'
 import 'cropperjs/dist/cropper.css';
-import Cropper from 'cropperjs';
-
-const image = document.getElementById('editor_container');
-const uploader = document.getElementById('form__custom')
-var bar = document.getElementById('js-progressbar');
-let save_btn = document.querySelector('.save__image');
-let cropper;
-UIkit.upload('.js-upload', {
-
-  url: 'image-upload',
-  multiple: false,
-
-  beforeSend: function (environment) {
-    console.log('beforeSend', arguments);
-
-    // The environment object can still be modified here.
-    // var {data, method, headers, xhr, responseType} = environment;
-
-  },
-  beforeAll: function () {
-    console.log('beforeAll', arguments);
-  },
-  load: function () {
-    console.log('load', arguments);
-  },
-  error: function () {
-    console.log('error', arguments);
-  },
-  complete: function () {
-    console.log('complete', arguments);
-  },
-
-  loadStart: function (e) {
-    console.log('loadStart', arguments);
-
-    bar.removeAttribute('hidden');
-    bar.max = e.total;
-    bar.value = e.loaded;
-  },
-
-  progress: function (e) {
-    console.log('progress', arguments);
-
-    bar.max = e.total;
-    bar.value = e.loaded;
-  },
-
-  loadEnd: function (e) {
-    uploader.style.display = 'none';
-    bar.setAttribute('hidden', true);
-    image.style.display = 'block';
-    save_btn.style.display = 'block';
-    cropper = new Cropper(image, {
-      aspectRatio: 4 / 3,
-      dragMode: 'move',
-      cropBoxResizable: false,
-    });
-
-    bar.max = e.total;
-    bar.value = e.loaded;
-  },
-
-  completeAll: function () {
-    console.log('completeAll', arguments);
-
-    setTimeout(function () {
-      bar.setAttribute('hidden', 'hidden');
-    }, 1000);
-
-    alert('Upload Completed');
-  }
-
-});
+import Croppie from 'croppie';
 
 
-function saveImage() {
-  let cropped_image = cropper.getCroppedCanvas().toDataURL('image/jpeg');
-  document.getElementById('input_image').value = cropped_image
-  cropper.destroy();
-  image.setAttribute('src', cropped_image);
-  save_btn.style.display = 'none';
+let files = [];
+
+function DataURIToBlob(dataURI) {
+  const splitDataURI = dataURI.split(',')
+  const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
+  const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
+
+  const ia = new Uint8Array(byteString.length)
+  for (let i = 0; i < byteString.length; i++)
+    ia[i] = byteString.charCodeAt(i)
+
+  return new Blob([ia], {
+    type: mimeString
+  })
 }
 
-save_btn.addEventListener('click', () => {
-  saveImage();
-})
+let car_select = document.getElementById('car_select');
+if (car_select) {
+  let car_info = document.getElementById('car__row');
+  car_select.addEventListener('change', (evt) => {
+    car_select.value == 'true' ? car_info.style.display = 'grid' : car_info.style.display = 'none'
+  })
+}
+let upload_image = document.getElementById('upload_input');
+if (upload_image) {
+  upload_image.addEventListener('change', function (evt) {
+      let file = evt.target.files;
+      let f = file[0];
+      if (!f.type.match('image.*')) {
+        alert("Image only please....");
+        return false;
+      }
+
+      let reader = new FileReader();
+      console.log(reader)
+      reader.onload = (function (theFile) {
+        return function (e) {
+          let modal = document.getElementById('crop_modal')
+          UIkit.modal(modal).show();
+          let basic = new Croppie(document.querySelector('.append_crop_imgs'), {
+            viewport: {
+              width: 300,
+              height: 400
+            },
+            showZoomer: false,
+            enableResize: false,
+          });
+          console.log(basic)
+          basic.bind({
+            url: e.target.result,
+          });
+          document.getElementById('save_crop').addEventListener('click', function () {
+            let size = 'viewport';
+            basic.result({}).then(function (resp) {
+              UIkit.modal(modal).hide();
+              document.querySelector('.append_image_loadeds').innerHTML = '<img class="thumb" title="' + theFile.name + '" src="' + resp + '"  alt=""/>';
+              var blobFile = DataURIToBlob(resp);
+              files[0] = blobFile;
+              basic.destroy();
+            });
+          })
+
+        };
+      })(f);
+      reader.readAsDataURL(f);
+    }
+  )
+}
+
+
 document.querySelectorAll(".custom__select").forEach(el => {
   new SlimSelect({
     select: el,

@@ -1,5 +1,6 @@
 @import "../../../node_modules/uikit/dist/css/uikit.min.css";
 @import "../../../node_modules/slim-select/dist/slimselect.css";
+@import "../../../node_modules/croppie/croppie.css";
 
 @import "utils/libs";
 @import "utils/vars";
@@ -29,6 +30,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: bottom center;
 
   }
 }
@@ -889,6 +891,7 @@ body {
     position: relative;
     height: 100%;
     background: #2B2B2B;
+
     &:after {
       content: "";
       display: block;
@@ -983,6 +986,52 @@ body {
   }
 }
 
+.append_crop_imgs.croppie-container {
+  height: calc(100% - 50px);
+}
+
+#crop_modal {
+  .uk-modal-dialog {
+    height: calc(100% - 50px);
+    padding: 0;
+    background: transparent;
+    max-height: 500px;
+  }
+
+  .uk-modal-close-outside {
+    background: transparent;
+  }
+
+  .cr-slider-wrap {
+    display: none;
+  }
+
+  .btn__wrapper {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+
+    .submit__btn {
+      padding: 16px 40px;
+      background: #2B2B2B;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: -0.3px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      font-family: $akrobatFont;
+      cursor: pointer;
+    }
+  }
+}
+
+.append_image_loadeds {
+  margin-top: 16px;
+}
+
 @media screen and (max-width: 1350px) {
   .fixed__image {
     left: 61vw;
@@ -997,6 +1046,19 @@ body {
   .uk-modal {
     padding-right: 15px;
     padding-left: 15px;
+  }
+  #crop_modal {
+    .uk-modal-close-outside {
+      top: 15px;
+      right: 15px;
+      transform: none;
+
+      svg {
+        path {
+          fill: white;
+        }
+      }
+    }
   }
   #form_modal {
     .uk-modal-close-outside {
@@ -1285,15 +1347,16 @@ body {
   }
 }
 
-@media screen and (max-width: 640px){
-  .uk-offcanvas-bar{
+@media screen and (max-width: 640px) {
+  .uk-offcanvas-bar {
     width: 100%;
     right: -100%;
   }
-  .uk-offcanvas-flip .uk-offcanvas-bar{
+  .uk-offcanvas-flip .uk-offcanvas-bar {
     right: -100%;
   }
 }
+
 @media screen and (max-width: 600px) {
   .staff__page {
     .staff__wrapper {
